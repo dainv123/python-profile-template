@@ -1,0 +1,67 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% wagtail_site as current_site %}
+                {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link href="//db.onlinewebfonts.com/c/9e181d5234a603164e4c5da9d22e6fbf?family=Linearicons-Free" rel="stylesheet" type="text/css"/>
+        
+        {# Global stylesheets #}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+        <!-- Animation -->
+        <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" type="text/css">
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+        <!-- Light Case -->
+        <link rel="stylesheet" href="{% static 'css/lightcase.min.css' %}" type="text/css">
+        <!-- Template style -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+
+        <link rel="stylesheet" href="{% static 'css/profile_template.css' %}" type="text/css">
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+
+        {% block content %}{% endblock %}
+
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!--Owl Coursel-->
+        <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <!-- Typing Text -->
+        <script type="text/javascript" src="{% static 'js/typed.min.js' %}"></script>
+        <!--Images LightCase-->
+        <script type="text/javascript" src="{% static 'js/lightcase.min.js' %}"></script>
+        <!-- Portfolio filter -->
+        <script type="text/javascript" src="{% static 'js/jquery.isotope.min.js' %}"></script>
+        <!-- Wow Animation -->
+        <script type="text/javascript" src="{% static 'js/wow.min.js' %}"></script>
+        <!-- Main Script -->
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+        <script type="text/javascript" src="{% static 'js/profile_template.js' %}"></script>
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>

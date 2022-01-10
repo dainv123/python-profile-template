@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% load wagtailimages_tags %}
+
+{% load static %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+    <div class="wrapper-page">
+        <!-- Main Content Pages -->
+        <div class="container">
+            <!-- Subpages -->
+            <div class="sub-home-pages">
+                <!-- About Me Subpage -->
+                <section id="about-me">
+                    <div class="sub-page-inner">
+                        <div class="section-title">
+                            <div class="main-title">
+                                <div class="title-main-page">
+                                    <h4>About me</h4>
+                                    <p>WHAT DO YOU WANT TO KNOW ABOUT ME?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <!-- about me -->
+                            <div class="row pb-30">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <h3>{{ page.first_name }}
+                                        {{ page.last_name }}
+                                        </h3>
+                                    <span class="about-location"><i class="lnr lnr-map-marker"></i>
+                                        {{ page.address }}
+                                    </span>
+                                    {{ page.intro|richtext }}
+                                </div>
+
+                                <div class="col-xs-6 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="box-img">
+                                        {% image page.avatar width-100 class="client_avatar" %}
+                                        <img src="{% static 'images/about.png' %}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /about me -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

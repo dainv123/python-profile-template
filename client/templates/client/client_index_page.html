@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% load static %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+    <div class="wrapper-page">
+        <!-- Main Content Pages -->
+        <div class="container">
+            <!-- Subpages -->
+            <div class="sub-home-pages">
+                <!-- About Me Subpage -->
+                <section id="about-me">
+                    <div class="sub-page-inner">
+                        <div class="section-content">
+                            <!-- services -->
+                            <div class="special-block-bg">
+                                <div class="section-head">
+                                    <h4>
+                                        <span>{{ page.title }}</span>
+                                        {{ page.intro|richtext }}
+                                    </h4>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="services-list row">
+                                            {% for post in page.get_children %}
+                                            <div class="col-sm-6">
+                                                <div class="service-block">
+                                                    <div class="service-icon">
+                                                        <i class="lnr lnr-code"></i>
+                                                    </div>
+                                                    <div class="service-text">
+                                                        <h4><a href="{% pageurl post %}">{{ post.title }}</a></h4>
+                                                        <p>{{ post.specific.address }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
