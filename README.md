@@ -36,17 +36,15 @@ Whenever user send a request to server, it will handle this request by Model, Vi
 - templates/: contain html file
 
 ### The project will perform list of client. And from list page, we can click to redirect to detail page to see detailed profile of them.
-- Page 1 is list of clients (ClientIndexPage)
+- Page 1 is list of clients (ClientIndexPage) 
+  - Live link: http://127.0.0.1:8000/client/
 - Page 2 is detailed of each client in list (ClientPage):
-  - first_name
-  - last_name
-  - birth_day
-  - address
-  - intro
-  - avatar
+  - Live link: http://127.0.0.1:8000/client/ammad/
+  - Properties: first_name - last_name - birth_day - address - intro - avatar
+
 
 ### Setup development environment
-- cd profile_template/ (main folder)
+- cd python-profile-template/ (main folder)
 - pip install -r requirements.txt
 - python manage.py migrate
 - python manage.py createsuperuser
